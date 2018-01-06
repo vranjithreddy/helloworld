@@ -1,0 +1,10 @@
+# contains about tasks that are installed and executed on hosts
+- name: Installing Apache Package
+  yum: pkg=httpd state=latest
+- name: check the running status of apache
+  service: name=http state=running enabled=yes
+- name: copy files from src to dest
+  template: src=helloworld.html dest=/var/www/html/index.html
+  notify: restart apache
+- name: restart apache
+  service: name=http state=restated

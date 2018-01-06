@@ -1,0 +1,7 @@
+# Configuring Apache server
+- name: install and configure webserver
+  hosts: webservers
+  remote_user: ec2-user
+  sudo: yes
+  roles:
+          - webserver
